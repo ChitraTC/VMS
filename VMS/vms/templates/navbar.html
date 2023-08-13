@@ -1,0 +1,40 @@
+{% load static %}
+
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-secondary">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      {% if request.user.is_super_admin %}
+            <h1> <a href= "{% url 'super_admin_page' %}"> <i class="fa-solid fa-user-shield"> </i> Super Admin Panel</i></a></h1>
+
+        {% elif request.user.is_admin %}
+            <h1> <a href= "{% url 'admin_page' %}"> <i class="fa-solid fa-user-pen"></i> Admin Panel</a></h1>
+
+        {% elif request.user.is_user %}
+            <h1><i class="fa-solid fa-user"></i> User Panel</h1>
+
+        {% else %}
+            <h1>Not Logged In</h1>
+
+      {% endif %}
+
+    </ul>
+  </div>
+
+  {% if request.user.is_authenticated %}
+    <div class="hello-msg">Hello, {{ request.user.username }}</div>
+    <a class="btn btn-primary" href="{% url 'logout' %}">Logout <i class="fa-regular fa-right-from-bracket"></i></a>
+  {% endif %}
+
+</nav>

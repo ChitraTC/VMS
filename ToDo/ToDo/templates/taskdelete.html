@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+
+
+	body{
+		background-color: #f3ca21;
+		font-family: 'Brush Script MT', cursive;
+		text-decoration-color: blue;
+
+	}
+
+	input{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+		style="color:MediumSeaGreen;"
+	}
+
+	input::placeholder {
+	  color:#c09b04;
+	  style="color:MediumSeaGreen;"
+	}
+
+	.submit{
+		background-color: MediumSeaGreen;
+	}
+
+	.center-column{
+		width:600px;
+		margin: 60px auto;
+		padding:20px;
+		background-color: #fff;
+		border-radius: 12px;
+		font-size: 24px;
+		box-shadow: 10px 2px 30px 0px rgba(0,0,0,0.75);
+		style="color:MediumSeaGreen;
+	}
+
+	.item-row{
+		background-color: #906abd;
+		margin: 10px;
+		padding: 20px;
+		border-radius: 3px;
+		color: #c09b04;
+		font-size: 25px;
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+	}
+
+	.btn-danger{
+		background-color: #c09b04;
+		border-color: #e59400;
+	}
+	.h1 {
+  font-family: 'Brush Script MT', cursive;
+  text-align: center;
+    }
+
+.h-100{
+   min-height:40vh;
+ }
+
+
+</style>
+
+<div class="center-column">
+
+    <p style="color:MediumSeaGreen;">TODO!!</p>
+    <h1 style="color:MediumSeaGreen;">Hello, {{user.username | title}} you are about to delete </h1>
+<div class="card-body">
+    <form method="post" action="">
+        {% csrf_token %}
+        <p> "{{task}}" ??</p>
+        <p>Press delete to delete or back to skip</p>
+        <input class="button" style="text-align:center;background-color: #c09b04;" type="submit" value="Delete">
+        <a href="{% url 'task_list' %}">Back</a>
+    </form>
+</div>
+
+</body>
+</html>

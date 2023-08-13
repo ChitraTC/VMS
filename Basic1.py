@@ -1,0 +1,7 @@
+print("0----")
+print(" ||||")
+print("*" * 10)
+name=input("what is ur name? \n")
+print("Hi",name)
+F_name=input("Enter your full name"+name)
+print(F_name)

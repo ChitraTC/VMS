@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clothing Store</title>
+</head>
+<body>
+<div class="row">
+    # object_list is fetched in views as all(clothes.objects.all)
+    {% for each in objects %}
+    <div class="card">
+        <img alt="..." class="card-img-top" src="{{each.image_url}}" style="width:100%">
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
